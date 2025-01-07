@@ -1,8 +1,10 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Interactible : MonoBehaviour
 {
     public int maxPopulation;
+    [SerializeField] public List<Unit> unitsInteracting;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,8 +17,15 @@ public class Interactible : MonoBehaviour
         
     }
 
-    void Interact()
+    void Interact(Unit unit)
+    {
+        
+    }
+
+    void StopInteracting()
     {
         
     }
 }
+
+
