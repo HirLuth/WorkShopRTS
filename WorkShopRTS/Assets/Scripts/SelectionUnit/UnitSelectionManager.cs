@@ -68,23 +68,17 @@ public class UnitSelectionManager : MonoBehaviour
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 
             // If we are hitting a clickable object
-            if(Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
+            if(Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
-                GroundSelection(hit);
-                ClearRessourceList();
-            }
-        }
-
-        // If you click on a Ressource Element
-        if(Input.GetMouseButtonDown(1) && unitsSelected.Count > 0)
-        {
-            RaycastHit hit;
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-
-            // If we are hitting a clickable object
-            if(Physics.Raycast(ray, out hit, Mathf.Infinity, ressourcePool))
-            {
-                RessourcesSelection(hit);
+                if(hit.transform.gameObject.layer == LayerMask.NameToLayer("Ground"))
+                {
+                    GroundSelection(hit);
+                    ClearRessourceList();
+                }
+                if(hit.transform.gameObject.layer == LayerMask.NameToLayer("RessourcePool"))
+                {
+                    RessourcesSelection(hit);
+                }
             }
         }
     }

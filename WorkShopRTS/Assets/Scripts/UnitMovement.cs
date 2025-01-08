@@ -6,7 +6,7 @@ public class UnitMovement : MonoBehaviour
 
     private Camera cam;
     NavMeshAgent agent;
-    public LayerMask ground;
+    public LayerMask ground, ressourcePool;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,9 +22,16 @@ public class UnitMovement : MonoBehaviour
             RaycastHit hit;
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 
-            if(Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
+            if(Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
-                agent.SetDestination(hit.point);
+                 if(hit.transform.gameObject.layer == LayerMask.NameToLayer("Ground"))
+                {
+                    agent.SetDestination(hit.point);
+                }
+                if(hit.transform.gameObject.layer == LayerMask.NameToLayer("RessourcePool"))
+                {
+                    agent.SetDestination(hit.point);
+                }
             }
         }
     }
