@@ -16,10 +16,6 @@ public class Interactible : MonoBehaviour
             isInteractedWith = true;
             currentPopulation += 1;
         }
-        else
-        {
-            Debug.Log("Max population reached");
-        }
         
     }
 

@@ -89,6 +89,10 @@ public class UnitSelectionManager : MonoBehaviour
             groundMarker.SetActive(false);
             groundMarker.SetActive(true);
             groundMarker.transform.position = hit.point;
+            foreach (var unit in unitsSelected)
+            {
+                unit.GetComponent<Unit>().ExitInteraction();
+            }
         }
     public void RessourcesSelection(RaycastHit hit)
         {
@@ -96,6 +100,10 @@ public class UnitSelectionManager : MonoBehaviour
             groundMarker.transform.position = hit.point;
             RessourcesList.Add(hit.transform.gameObject);
             hit.transform.GetChild(0).gameObject.SetActive(true);
+            foreach (var unit in unitsSelected)
+            {
+                unit.GetComponent<Unit>().SetInteraction(hit.collider.gameObject);
+            }
         }
     private void ClearRessourceList()
     {
