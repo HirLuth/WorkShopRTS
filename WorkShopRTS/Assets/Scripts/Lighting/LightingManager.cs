@@ -8,23 +8,28 @@ public class LightingManager : MonoBehaviour
     [SerializeField] private LightingPreset Preset;
     //Variables
     [SerializeField, Range(0, 24)] private float TimeOfDay;
+    public bool isNightShiftActive;
+    public float MultiplierTimer;
 
 
     private void Update()
     {
-        if (Preset == null)
+        if(isNightShiftActive)
+        {
+            if (Preset == null)
             return;
 
         if (Application.isPlaying)
         {
             //(Replace with a reference to the game time)
-            TimeOfDay += Time.deltaTime;
+            TimeOfDay += Time.deltaTime * MultiplierTimer;
             TimeOfDay %= 24; //Modulus to ensure always between 0-24
             UpdateLighting(TimeOfDay / 24f);
         }
         else
         {
             UpdateLighting(TimeOfDay / 24f);
+        }
         }
     }
 
