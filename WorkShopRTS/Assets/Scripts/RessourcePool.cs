@@ -11,6 +11,11 @@ public class RessourcePool : Interactible
     public float harvestSpeed;
     private float timer;
 
+    private void Start()
+    {
+        currentPossessed = maxPossessed;
+    }
+
     private void Update()
     {
         if (isInteractedWith)
@@ -22,6 +27,11 @@ public class RessourcePool : Interactible
                     int toGive = Mathf.Clamp(numberOfRessourcesToGive, 0, currentPossessed);
                     currentPossessed -= toGive;
                     unit.inventory.AddResources(ressourceToGive, toGive);
+                }
+
+                if (currentPossessed==0)
+                {
+                    Destroy(gameObject);
                 }
                 timer = 0;
             }
