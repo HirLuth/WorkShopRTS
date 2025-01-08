@@ -20,7 +20,7 @@ public class UIManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    
     public void UpdateRessources(RessourcesManager.Ressource ressourceToUpdate)
     {
         ressourcesTexts[(int)ressourceToUpdate].text = PlayerInventory.instance.ressources[(int)ressourceToUpdate].ToString();

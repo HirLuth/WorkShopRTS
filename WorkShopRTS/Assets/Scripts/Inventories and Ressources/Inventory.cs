@@ -7,7 +7,7 @@ public class Inventory : MonoBehaviour
     [Header("Main Resources")] 
     public List<int> ressources;
     
-    private void Start()
+    protected virtual void Start()
     {
         ressources = new List<int>();
         for (int i = 0; i < RessourcesManager.instance.numberOfRessources; i++)
