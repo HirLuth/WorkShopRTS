@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class UnitInventory : MonoBehaviour
+public class UnitInventory : Inventory
 {
     
 }

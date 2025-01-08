@@ -1,16 +1,38 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class RessourcePool : Interactible
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public RessourcesManager.Ressource ressourceToGive;
+    public int numberOfRessourcesToGive;
+    public int maxPossessed;
+    public int currentPossessed;
+    public float harvestSpeed;
+    private float timer;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (isInteractedWith)
+        {
+            if (timer >= harvestSpeed)
+            {
+                foreach (var unit in unitsInteracting)
+                {
+                    int toGive = Mathf.Clamp(numberOfRessourcesToGive, 0, currentPossessed);
+                    currentPossessed -= toGive;
+                    unit.inventory.AddResources(ressourceToGive, toGive);
+                }
+                timer = 0;
+            }
+            else
+            {
+                timer += Time.deltaTime;
+            }
+        }
+        else
+        {
+            timer = 0;
+        }
     }
 }

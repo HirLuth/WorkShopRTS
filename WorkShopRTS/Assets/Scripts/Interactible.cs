@@ -4,27 +4,22 @@ using UnityEngine;
 public class Interactible : MonoBehaviour
 {
     public int maxPopulation;
-    [SerializeField] public List<Unit> unitsInteracting;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [HideInInspector] public List<Unit> unitsInteracting;
+    [HideInInspector] public bool isInteractedWith;
 
     void Interact(Unit unit)
     {
-        
+        unitsInteracting.Add(unit);
+        isInteractedWith = true;
     }
 
-    void StopInteracting()
+    void StopInteracting(Unit unit)
     {
-        
+        unitsInteracting.Remove(unit);
+        if (unitsInteracting.Count == 0)
+        {
+            isInteractedWith = false;
+        }
     }
 }
 
