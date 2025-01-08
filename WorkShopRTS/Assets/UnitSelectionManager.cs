@@ -98,7 +98,7 @@ public class UnitSelectionManager : MonoBehaviour
     }
     private void EnableUnitMovement(GameObject unit, bool shouldMove)
     {
-        
+        unit.GetComponent<UnitMovement>().enabled = shouldMove;
     }
     private void MultiSelect(GameObject unit)
     {
