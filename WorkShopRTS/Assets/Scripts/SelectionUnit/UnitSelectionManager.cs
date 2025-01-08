@@ -11,10 +11,10 @@ public class UnitSelectionManager : MonoBehaviour
     [Header("List")]
     public List<GameObject> allUnitsList = new List<GameObject>();
     public List<GameObject> unitsSelected = new List<GameObject>();
+    public List<GameObject> RessourcesList = new List<GameObject>();
 
     [Header("Click Variable")]
-    public LayerMask clickable;
-    public LayerMask ground;
+    public LayerMask clickable, ground, ressourcePool;
     public GameObject groundMarker;
 
     private Camera cam;
@@ -61,7 +61,7 @@ public class UnitSelectionManager : MonoBehaviour
             }
         }
 
-
+        // If you Click on the ground
          if(Input.GetMouseButtonDown(1) && unitsSelected.Count > 0)
         {
             RaycastHit hit;
@@ -70,11 +70,46 @@ public class UnitSelectionManager : MonoBehaviour
             // If we are hitting a clickable object
             if(Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
             {
-                groundMarker.transform.position = hit.point;
-                groundMarker.SetActive(false);
-                groundMarker.SetActive(true);
+                GroundSelection(hit);
+                ClearRessourceList();
             }
         }
+
+        // If you click on a Ressource Element
+        if(Input.GetMouseButtonDown(1) && unitsSelected.Count > 0)
+        {
+            RaycastHit hit;
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+
+            // If we are hitting a clickable object
+            if(Physics.Raycast(ray, out hit, Mathf.Infinity, ressourcePool))
+            {
+                RessourcesSelection(hit);
+            }
+        }
+    }
+
+    // Selection Function for each layer
+    public void GroundSelection(RaycastHit hit)
+        {
+            groundMarker.SetActive(false);
+            groundMarker.SetActive(true);
+            groundMarker.transform.position = hit.point;
+        }
+    public void RessourcesSelection(RaycastHit hit)
+        {
+            groundMarker.SetActive(false);
+            groundMarker.transform.position = hit.point;
+            RessourcesList.Add(hit.transform.gameObject);
+            hit.transform.GetChild(0).gameObject.SetActive(true);
+        }
+    private void ClearRessourceList()
+    {
+        foreach(var ressource in RessourcesList)
+        {
+            ressource.transform.GetChild(0).gameObject.SetActive(false);
+        }
+        RessourcesList.Clear();
     }
 
     private void SelectByClicking(GameObject unit)
@@ -103,6 +138,8 @@ public class UnitSelectionManager : MonoBehaviour
         
         groundMarker.SetActive(false);
         unitsSelected.Clear();
+
+        ClearRessourceList();
     }
     // Multi selection
     private void MultiSelect(GameObject unit)
