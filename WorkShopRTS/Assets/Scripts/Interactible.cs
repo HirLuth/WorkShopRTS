@@ -8,7 +8,7 @@ public class Interactible : MonoBehaviour
     /*[HideInInspector]*/ public List<Unit> unitsInteracting;
     /*[HideInInspector]*/ public bool isInteractedWith;
 
-    public void Interact(Unit unit)
+    public virtual void Interact(Unit unit)
     {
         if (currentPopulation < maxPopulation)
         {
@@ -19,7 +19,7 @@ public class Interactible : MonoBehaviour
         
     }
 
-    public void StopInteracting(Unit unit)
+    public virtual void StopInteracting(Unit unit)
     {
         unitsInteracting.Remove(unit);
         if (unitsInteracting.Count == 0)

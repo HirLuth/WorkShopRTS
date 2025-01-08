@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class RessourcePool : Interactible
@@ -31,6 +32,12 @@ public class RessourcePool : Interactible
 
                 if (currentPossessed==0)
                 {
+                    List<Unit> units = unitsInteracting.ToList();
+                    foreach (var unit in units)
+                    { 
+                        unit.ExitInteraction(Unit.State.Still);
+                        unit.BackToBase();
+                    }
                     Destroy(gameObject);
                 }
                 timer = 0;

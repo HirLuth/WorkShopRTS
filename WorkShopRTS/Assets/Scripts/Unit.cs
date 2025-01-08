@@ -10,6 +10,7 @@ public class Unit : MonoBehaviour
         Still,
         Moving,
         MovingToInteract,
+        MovingUnselected,
         Interacting,
     }
     
@@ -26,6 +27,7 @@ public class Unit : MonoBehaviour
     public float moveSpeed;
     public float thirstValue;
     public UnitInventory inventory;
+    public UnitMovement unitMovement;
     
     void Start()
     {
@@ -37,35 +39,55 @@ public class Unit : MonoBehaviour
         UnitSelectionManager.Instance.allUnitsList.Remove(gameObject);
     }
 
-    public void SetInteraction(GameObject interactableObj)
+    public void SetInteraction(GameObject interactableObj, bool isGoingToTheCar = false)
     {
-        state = State.MovingToInteract;
+        state = isGoingToTheCar ? State.MovingUnselected : State.MovingToInteract;
         currentInteractibleObj = interactableObj;
         currentInteractible = interactableObj.GetComponent<Interactible>();
         interactibleDetectionBox.enabled = true;
         if (currentInteractible.currentPopulation == currentInteractible.maxPopulation)
         {
             Debug.Log("Too Many Units !!");
-            ExitInteraction();
+            ExitInteraction(State.Moving);
         }
     }
 
-    public void ExitInteraction()
+    public void ExitInteraction(State nextState)
     {
         if (state == State.Interacting)
         {
             currentInteractible.StopInteracting(this);
         }
+
+        if (state == State.MovingUnselected)
+        {
+            unitMovement.enabled = false;
+            unitMovement.isMovingAlone = false;
+            unitMovement.StopGoingToTheCar();
+        }
         currentInteractibleObj = null;
         interactibleDetectionBox.enabled = false;
+        state = nextState;
+        Debug.Log(nextState);
+    }
+
+    public void BackToBase()
+    {
+        state = State.MovingUnselected;
+        unitMovement.enabled = true;
+        unitMovement.isMovingAlone = true;
+        unitMovement.GoBackToTheCar();
+        SetInteraction(PlayerInventory.instance.unitObjSelfReference,true);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("oui");
         if (other.gameObject == currentInteractibleObj)
         {
-            state = State.Interacting;
+            if (state==State.MovingToInteract || state == State.MovingUnselected)
+            {
+                state = State.Interacting;
+            }
             currentInteractible.Interact(this);
         }
     }
