@@ -79,16 +79,21 @@ public class UnitSelectionManager : MonoBehaviour
 
     private void SelectByClicking(GameObject unit)
     {
+        // Reset the selection and select the new element
         DeselectAll();
         unitsSelected.Add(unit);
 
         SelectUnit(unit, true);
     }
+
+    // Select Function 
+    // Make appear the indicator and allow the movement of element
     private void SelectUnit(GameObject unit, bool isSelected)
     {
         TriggerSelectionIndicator(unit, isSelected);
         EnableUnitMovement(unit,isSelected);
     }
+    // Function of the selection reset 
     public void DeselectAll()
     {
         foreach(var unit in unitsSelected)
@@ -99,10 +104,7 @@ public class UnitSelectionManager : MonoBehaviour
         groundMarker.SetActive(false);
         unitsSelected.Clear();
     }
-    private void EnableUnitMovement(GameObject unit, bool shouldMove)
-    {
-        unit.GetComponent<UnitMovement>().enabled = shouldMove;
-    }
+    // Multi selection
     private void MultiSelect(GameObject unit)
     {
         if(unitsSelected.Contains(unit) == false)
@@ -117,11 +119,7 @@ public class UnitSelectionManager : MonoBehaviour
         }
     }
 
-    private void TriggerSelectionIndicator(GameObject unit, bool isVisible)
-    {
-        unit.transform.GetChild(0).gameObject.SetActive(isVisible);
-    }
-
+    // Select function with drag
     internal void DragSelect(GameObject unit)
     {
         if(unitsSelected.Contains(unit) == false)
@@ -130,4 +128,16 @@ public class UnitSelectionManager : MonoBehaviour
             SelectUnit(unit, true);
         }
    }
+
+    // Allow movement
+    private void EnableUnitMovement(GameObject unit, bool shouldMove)
+    {
+        unit.GetComponent<UnitMovement>().enabled = shouldMove;
+    }
+
+    // Make appear the indicator of unit
+    private void TriggerSelectionIndicator(GameObject unit, bool isVisible)
+    {
+        unit.transform.GetChild(0).gameObject.SetActive(isVisible);
+    }
 }
