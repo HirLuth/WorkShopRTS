@@ -5,8 +5,8 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     [Header("Main Resources")] 
-    private List<int> ressources;
-
+    public List<int> ressources;
+    
     private void Start()
     {
         ressources = new List<int>();

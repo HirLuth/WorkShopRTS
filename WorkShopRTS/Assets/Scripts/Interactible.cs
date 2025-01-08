@@ -4,16 +4,26 @@ using UnityEngine;
 public class Interactible : MonoBehaviour
 {
     public int maxPopulation;
-    [HideInInspector] public List<Unit> unitsInteracting;
-    [HideInInspector] public bool isInteractedWith;
+    public int currentPopulation;
+    /*[HideInInspector]*/ public List<Unit> unitsInteracting;
+    /*[HideInInspector]*/ public bool isInteractedWith;
 
-    void Interact(Unit unit)
+    public void Interact(Unit unit)
     {
-        unitsInteracting.Add(unit);
-        isInteractedWith = true;
+        if (currentPopulation < maxPopulation)
+        {
+            unitsInteracting.Add(unit);
+            isInteractedWith = true;
+            currentPopulation += 1;
+        }
+        else
+        {
+            Debug.Log("Max population reached");
+        }
+        
     }
 
-    void StopInteracting(Unit unit)
+    public void StopInteracting(Unit unit)
     {
         unitsInteracting.Remove(unit);
         if (unitsInteracting.Count == 0)
