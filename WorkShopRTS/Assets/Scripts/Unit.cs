@@ -68,6 +68,7 @@ public class Unit : MonoBehaviour
         currentInteractibleObj = null;
         interactibleDetectionBox.enabled = false;
         state = nextState;
+        Debug.Log(nextState);
     }
 
     public void BackToBase()
@@ -83,7 +84,10 @@ public class Unit : MonoBehaviour
     {
         if (other.gameObject == currentInteractibleObj)
         {
-            state = State.Interacting;
+            if (state==State.MovingToInteract || state == State.MovingUnselected)
+            {
+                state = State.Interacting;
+            }
             currentInteractible.Interact(this);
         }
     }
