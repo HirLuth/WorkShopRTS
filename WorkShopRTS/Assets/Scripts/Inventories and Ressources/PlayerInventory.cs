@@ -7,6 +7,8 @@ namespace Inventories_and_Ressources
     {
         public static PlayerInventory instance;
         public List<int> baseRessources;
+        public GameObject unitObjSelfReference;
+        public Interactible carInteractible;
 
         private void Awake()
         {

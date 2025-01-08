@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 5931588992427992293}
   - component: {fileID: 5961258542828438606}
   - component: {fileID: 5492407071191426662}
-  - component: {fileID: 3891464899584431316}
   - component: {fileID: 1984184550891255861}
+  - component: {fileID: 1438064231498539026}
   m_Layer: 7
   m_Name: Unit
   m_TagString: Untagged
@@ -137,7 +137,8 @@ MonoBehaviour:
   damage: 10
   moveSpeed: 3
   thirstValue: 100
-  inventory: {fileID: 3891464899584431316}
+  inventory: {fileID: 1438064231498539026}
+  unitMovement: {fileID: 5961258542828438606}
 --- !u!195 &5931588992427992293
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -178,6 +179,7 @@ MonoBehaviour:
   ressourcePool:
     serializedVersion: 2
     m_Bits: 0
+  isMovingAlone: 0
 --- !u!65 &5492407071191426662
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -199,21 +201,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3891464899584431316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1150680894693371247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e49dca65042cea748b4e53303dfb06bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ressources: 
-  myUnit: {fileID: 7717156293651907979}
-  maxStocks: e8030000e8030000e8030000e8030000
 --- !u!54 &1984184550891255861
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -241,6 +228,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1438064231498539026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150680894693371247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e49dca65042cea748b4e53303dfb06bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ressources: 
+  myUnit: {fileID: 7717156293651907979}
+  maxStocks: e8030000e8030000e8030000e8030000
 --- !u!1 &6404628645582546596
 GameObject:
   m_ObjectHideFlags: 0

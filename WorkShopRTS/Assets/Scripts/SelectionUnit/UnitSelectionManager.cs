@@ -91,7 +91,7 @@ public class UnitSelectionManager : MonoBehaviour
             groundMarker.transform.position = hit.point;
             foreach (var unit in unitsSelected)
             {
-                unit.GetComponent<Unit>().ExitInteraction();
+                unit.GetComponent<Unit>().ExitInteraction(Unit.State.Moving);
             }
         }
     public void RessourcesSelection(RaycastHit hit)
@@ -129,6 +129,7 @@ public class UnitSelectionManager : MonoBehaviour
     {
         TriggerSelectionIndicator(unit, isSelected);
         EnableUnitMovement(unit,isSelected);
+        unit.GetComponent<Unit>().ExitInteraction(Unit.State.Moving);
     }
     // Function of the selection reset 
     public void DeselectAll()
@@ -169,7 +170,7 @@ public class UnitSelectionManager : MonoBehaviour
    }
 
     // Allow movement
-    private void EnableUnitMovement(GameObject unit, bool shouldMove)
+    public void EnableUnitMovement(GameObject unit, bool shouldMove)
     {
         unit.GetComponent<UnitMovement>().enabled = shouldMove;
     }
