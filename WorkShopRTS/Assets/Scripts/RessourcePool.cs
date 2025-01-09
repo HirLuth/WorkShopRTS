@@ -38,7 +38,7 @@ public class RessourcePool : Interactible
                         unit.ExitInteraction(Unit.State.Still);
                         unit.BackToBase();
                     }
-                    Destroy(gameObject);
+                    gameObject.SetActive(false);
                 }
                 timer = 0;
             }

@@ -57,6 +57,12 @@ public class Unit : MonoBehaviour
         if (state == State.Interacting)
         {
             currentInteractible.StopInteracting(this);
+            if (currentInteractible.gameObject==PlayerInventory.instance.unitObjSelfReference)
+            {
+                unitMovement.enabled = false;
+                unitMovement.isMovingAlone = false;
+                unitMovement.StopGoingToTheCar();
+            }
         }
 
         if (state == State.MovingUnselected)
@@ -68,7 +74,6 @@ public class Unit : MonoBehaviour
         currentInteractibleObj = null;
         interactibleDetectionBox.enabled = false;
         state = nextState;
-        Debug.Log(nextState);
     }
 
     public void BackToBase()
