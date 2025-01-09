@@ -26,7 +26,7 @@ public class CommunityManager : MonoBehaviour
       CommunityPatrol comPatrol = newMember.transform.parent.parent.GetComponent<CommunityPatrol>();
       UnitCommunityMovement unitMove = newMember.GetComponent<UnitCommunityMovement>();
 
-      unitMove.enabled = false;
+      Destroy (unitMove);
       newMember.GetComponent<Unit>().enabled = true;
       newMember.GetComponent<UnitInventory>().enabled = true;
 
@@ -42,6 +42,7 @@ public class CommunityManager : MonoBehaviour
       newMember.GetComponent<MeshRenderer>().material = playerUnitMat;
 
       newMember.layer = 7;
+      newMember.tag = "UnitPlayerClan";
    }
 }
 
