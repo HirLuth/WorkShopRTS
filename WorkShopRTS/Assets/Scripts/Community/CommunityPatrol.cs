@@ -12,6 +12,7 @@ public class CommunityPatrol : MonoBehaviour
     public List<GameObject> unitChild = new List<GameObject>();
     private int currentPatrolIndex = 0;
     private float distance;
+    public float WaitTimer;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,6 +32,12 @@ public class CommunityPatrol : MonoBehaviour
 
     public void CheckChildren()
     {
+        StartCoroutine(WaitAndLeave(WaitTimer));
+    }
+
+     private IEnumerator WaitAndLeave(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
         float countValid = 0;
         for(int i = 0; i < unitChild.Count; i++)
         {
@@ -41,7 +48,7 @@ public class CommunityPatrol : MonoBehaviour
             else
             {
                 countValid = 0;
-                return;
+                yield break;
             }
         }
 
@@ -57,16 +64,6 @@ public class CommunityPatrol : MonoBehaviour
             {
                 unitChild[i].GetComponent<UnitCommunityMovement>().newPatrolPoint(patrolPoints[currentPatrolIndex]);
             }
-        }
-    }
-
-     private IEnumerator WaitAndLeave(float waitTime)
-    {
-        yield return new WaitForSeconds(waitTime);
-        currentPatrolIndex += 1;
-        if(currentPatrolIndex > patrolPoints.Count)
-        {
-            currentPatrolIndex = 0;
         }
     }
 }
