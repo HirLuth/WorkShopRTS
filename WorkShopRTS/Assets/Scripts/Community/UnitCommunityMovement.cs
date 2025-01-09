@@ -48,7 +48,7 @@ public class UnitCommunityMovement : MonoBehaviour
         isArrived = false;
     }
 
-  /*  private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Enter");
         if(other.CompareTag("UnitPlayerClan"))
@@ -63,5 +63,5 @@ public class UnitCommunityMovement : MonoBehaviour
         {
             GameObject.Find("CommunityManager").GetComponent<CommunityManager>().AddNewMemberClanPanel.SetActive(false);
         }
-    } */
+    }
 }
