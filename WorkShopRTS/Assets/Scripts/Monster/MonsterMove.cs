@@ -1,4 +1,5 @@
 using System.Collections;
+using TreeEditor;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -16,6 +17,9 @@ public class MonsterMove : MonoBehaviour
     private float percentagePlayerTarget = 0f;
     private float percentageRandomTarget = 100f;
 
+    private bool isChasing;
+    private GameObject currentTarget;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -28,6 +32,10 @@ public class MonsterMove : MonoBehaviour
        if(distance <= 1 )
        {
          GoToPosition();
+       }
+       if(isChasing)
+       {
+         agent.SetDestination(currentTarget.transform.position);
        }
     }
 
@@ -46,6 +54,23 @@ public class MonsterMove : MonoBehaviour
             agent.SetDestination(goalPos);
             currentGoal = goalPos;
             percentagePlayerTarget += 10;
+        }
+    }
+    private void OnTriggerEnter(Collider col)
+    {
+        if(col.CompareTag("UnitPlayerClan"))
+        {
+            isChasing = true;
+            currentTarget = col.gameObject;
+        }
+    }
+    private void OnTriggerExit(Collider col)
+    {
+        if(col.CompareTag("UnitPlayerClan"))
+        {
+            isChasing = false;
+            currentTarget = null;
+            GoToPosition();
         }
     }
 }
