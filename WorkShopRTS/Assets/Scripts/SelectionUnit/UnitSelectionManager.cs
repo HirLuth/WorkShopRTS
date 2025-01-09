@@ -116,6 +116,14 @@ public class UnitSelectionManager : MonoBehaviour
 
     private void SelectByClicking(GameObject unit)
     {
+        if (unitsSelected.Contains(unit))
+        {
+
+        }
+        else
+        {
+            Debug.Log("ordre");
+        }
         // Reset the selection and select the new element
         DeselectAll();
         unitsSelected.Add(unit);
@@ -129,7 +137,12 @@ public class UnitSelectionManager : MonoBehaviour
     {
         TriggerSelectionIndicator(unit, isSelected);
         EnableUnitMovement(unit,isSelected);
-        unit.GetComponent<Unit>().ExitInteraction(Unit.State.Moving);
+        Unit currentUnit = unit.GetComponent<Unit>();
+        currentUnit.isSelected = isSelected;
+        if (isSelected)
+        {
+            currentUnit.ExitInteraction(Unit.State.Moving);
+        }
     }
     // Function of the selection reset 
     public void DeselectAll()

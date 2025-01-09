@@ -25,10 +25,9 @@ namespace Inventories_and_Ressources
         protected override void Start()
         {
             base.Start();
-            Debug.Log("oui");
-            foreach (var ressource in baseRessources)
+            for (int i = 0; i < baseRessources.Count; i++)
             {
-                ressources.Add(ressource);
+                AddResources((RessourcesManager.Ressource)i, baseRessources[i]);
             }
         }
 
@@ -52,6 +51,14 @@ namespace Inventories_and_Ressources
                 AddResources((RessourcesManager.Ressource)i,inventoryUnit.ressources[i]);
                 inventoryUnit.RemoveResources((RessourcesManager.Ressource)i,inventoryUnit.ressources[i]);
             }
+        }
+
+        public void DrinkAtCar(Unit unitThatDrink)
+        {
+            Debug.Log("Drink");
+            int amountToDrink = Mathf.Clamp(unitThatDrink.maxHydratation - unitThatDrink.currentHydratation, 0, ressources[0]);
+            unitThatDrink.AddHydratation(amountToDrink);
+            RemoveResources(RessourcesManager.Ressource.Water,amountToDrink);
         }
     }
 }

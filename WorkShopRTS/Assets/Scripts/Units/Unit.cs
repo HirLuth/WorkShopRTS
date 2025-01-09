@@ -11,9 +11,10 @@ public class Unit : MonoBehaviour
         Moving,
         MovingToInteract,
         MovingUnselected,
-        Interacting,
+        Interacting
     }
-    
+
+    public bool isSelected;
     public State state = State.Still;
     public GameObject currentInteractibleObj;
     public Interactible currentInteractible;
@@ -22,17 +23,54 @@ public class Unit : MonoBehaviour
     [Header("Units Values")]
     public string UnitName;
     public int level;
-    public float health;
-    public float damage;
+    public int currentHealth;
+    public int maxHealth;
+    public int damage;
     public float moveSpeed;
-    public float thirstValue;
+    public int maxHydratation;
+    public int currentHydratation;
+    public float heatValue;
     public UnitInventory inventory;
     public UnitMovement unitMovement;
+    public UnitCanvas unitCanvas;
+    
+    private float _timerHydratation;
+    public float tickDehydration;
+    public int dehydrationConst;
+
     
     void Start()
     {
         UnitSelectionManager.Instance.allUnitsList.Add(gameObject);
+        currentHydratation = maxHydratation;
     }
+    
+    private void Update()
+    {
+        _timerHydratation += Time.deltaTime;
+        if (_timerHydratation >= tickDehydration)
+        {
+            _timerHydratation = 0;
+            AddHydratation(- Mathf.RoundToInt(heatValue*dehydrationConst));
+        }
+    }
+
+    public void AddHydratation(int hydratationToAdd)
+    {
+       ChangeHydratation(Mathf.Clamp(currentHydratation + hydratationToAdd ,0,maxHydratation));
+    }
+
+    public void ChangeHydratation(int newHydratation)
+    {
+        currentHydratation = newHydratation;
+        unitCanvas.UpdateHydratationJauge(currentHydratation, maxHydratation);
+        if (currentHydratation <= 0)
+        {
+            Death();
+        }
+    }
+    
+    
 
     private void OnDestroy() 
     {
@@ -95,6 +133,11 @@ public class Unit : MonoBehaviour
             }
             currentInteractible.Interact(this);
         }
+    }
+
+    public void Death()
+    {
+        Destroy(gameObject);
     }
     
 }

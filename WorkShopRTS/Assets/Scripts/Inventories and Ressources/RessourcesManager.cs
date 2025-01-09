@@ -5,6 +5,7 @@ using UnityEngine;
 public class RessourcesManager : MonoBehaviour
 {
     public static RessourcesManager instance;
+    public int ratioWaterHydration;
 
     private void Awake()
     {
