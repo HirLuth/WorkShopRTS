@@ -6,7 +6,8 @@ using UnityEngine.AI;
 
 public class MonsterMove : MonoBehaviour
 {
-    NavMeshAgent agent;
+    [HideInInspector]
+    public NavMeshAgent agent;
     public Transform terrain;
     private float terrainWidth = 100;
     private float terrainHeight = 100;
@@ -39,7 +40,7 @@ public class MonsterMove : MonoBehaviour
        }
     }
 
-    private void GoToPosition()
+    public void GoToPosition()
     {
         float percentage = Random.Range(0,percentageRandomTarget);
         if(percentage <= percentagePlayerTarget)

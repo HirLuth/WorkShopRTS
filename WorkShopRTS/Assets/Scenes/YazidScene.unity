@@ -253,6 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dab2eb6b59a38d408eecff8e69416dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agent: {fileID: 0}
   terrain: {fileID: 1776114321}
   carPlayer: {fileID: 1372323377}
   percentagePlayerTarget: 0
@@ -3937,7 +3938,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6836730796793461980, guid: 585d648518118c54ca311b8b213c0d75, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -601.2
+      value: -563
       objectReference: {fileID: 0}
     - target: {fileID: 6836730796793461980, guid: 585d648518118c54ca311b8b213c0d75, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3945,7 +3946,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6836730796793461980, guid: 585d648518118c54ca311b8b213c0d75, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -27.5
+      value: -66.2
       objectReference: {fileID: 0}
     - target: {fileID: 6836730796793461980, guid: 585d648518118c54ca311b8b213c0d75, type: 3}
       propertyPath: m_LocalRotation.w

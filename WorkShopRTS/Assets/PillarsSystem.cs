@@ -28,6 +28,7 @@ public class PillarsSystem : MonoBehaviour
         currentPillar.GetComponent<Pillar>().isRepaired = true;
         currentPillar.GetComponent<MeshFilter>().sharedMesh = repairedMesh;
         restorePillarsPanel.SetActive(false);
+        Monster.GetComponent<MonsterMove>().agent.SetDestination(currentPillar.transform.position);
         AffectMonster();
     }
 
