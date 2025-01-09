@@ -6,6 +6,6 @@ public class CarInteractible : Interactible
     public override void Interact(Unit unit)
     {
         PlayerInventory.instance.Unload(unit);
-        StopInteracting(unit);
+        unit.ExitInteraction(Unit.State.Still);
     }
 }
