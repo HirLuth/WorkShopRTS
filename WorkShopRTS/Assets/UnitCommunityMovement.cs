@@ -47,4 +47,21 @@ public class UnitCommunityMovement : MonoBehaviour
         unitPatrolPoint = parentPatrolPoint.transform.position;
         isArrived = false;
     }
+
+  /*  private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Enter");
+        if(other.CompareTag("UnitPlayerClan"))
+        {
+            Debug.Log("Detect");
+            GameObject.Find("CommunityManager").GetComponent<CommunityManager>().AddNewMemberClanPanel.SetActive(true);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("UnitPlayerClan"))
+        {
+            GameObject.Find("CommunityManager").GetComponent<CommunityManager>().AddNewMemberClanPanel.SetActive(false);
+        }
+    } */
 }

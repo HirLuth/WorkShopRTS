@@ -37,6 +37,12 @@ public class UnitMovement : MonoBehaviour
                         agent.SetDestination(hit.point);
                     }
                 }
+
+                if(Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
+                {
+                    Debug.Log("ground");
+                    agent.SetDestination(hit.point);
+                }
             }
         }
         

@@ -1,11 +1,14 @@
 using Inventories_and_Ressources;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CommunityManager : MonoBehaviour
 {
     [SerializeField]
     private Transform playerCommunity;
     public Material playerUnitMat;
+
+    public GameObject AddNewMemberClanPanel;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -34,7 +37,7 @@ public class CommunityManager : MonoBehaviour
             comPatrol.unitChild.Remove(newMember);
         }
       }
-      
+
       newMember.transform.SetParent(playerCommunity);
       newMember.GetComponent<MeshRenderer>().material = playerUnitMat;
 

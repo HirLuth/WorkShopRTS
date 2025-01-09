@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - UnitPlayerClan
   layers:
   - Default
   - TransparentFX
@@ -14,7 +15,7 @@ TagManager:
   - Ground
   - Clickable
   - RessourcePool
-  - 
+  - FogOfWar
   - 
   - 
   - 
