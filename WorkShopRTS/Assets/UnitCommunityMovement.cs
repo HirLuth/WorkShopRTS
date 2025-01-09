@@ -13,9 +13,12 @@ public class UnitCommunityMovement : MonoBehaviour
     private float distance;
     public Vector3 unitPatrolPoint;
     public bool isArrived;
+   // [HideInInspector]
+    public int IndexInHierarchy;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        IndexInHierarchy = transform.GetSiblingIndex();
         agent = GetComponent<NavMeshAgent>();
         communityPatrol = transform.parent.parent.GetComponent<CommunityPatrol>();
     }
