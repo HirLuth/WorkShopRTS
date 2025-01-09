@@ -2859,7 +2859,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1642025393
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3121,12 +3121,12 @@ GameObject:
   - component: {fileID: 1778750515}
   - component: {fileID: 1778750514}
   m_Layer: 9
-  m_Name: FogPlane (1)
+  m_Name: FogOfWar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1778750514
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3211,7 +3211,7 @@ Transform:
   m_GameObject: {fileID: 1778750513}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 150, y: 3, z: 50}
+  m_LocalPosition: {x: 50, y: 3, z: 50}
   m_LocalScale: {x: 10, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
