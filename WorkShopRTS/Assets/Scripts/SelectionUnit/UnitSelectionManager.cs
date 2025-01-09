@@ -14,7 +14,7 @@ public class UnitSelectionManager : MonoBehaviour
     public List<GameObject> RessourcesList = new List<GameObject>();
 
     [Header("Click Variable")]
-    public LayerMask clickable, ground, ressourcePool;
+    public LayerMask clickable, ground, ressourcePool, fogOfWar;
     public GameObject groundMarker;
 
     private Camera cam;
@@ -79,6 +79,19 @@ public class UnitSelectionManager : MonoBehaviour
                 {
                     RessourcesSelection(hit);
                 }
+            }
+        }
+
+        // Fog Of war Clickable
+         if(Input.GetMouseButtonDown(1))
+        {
+            RaycastHit hit;
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+
+            // If we are hitting a clickable object
+            if(Physics.Raycast(ray, out hit, Mathf.Infinity, fogOfWar))
+            {
+                GroundSelection(hit);
             }
         }
     }

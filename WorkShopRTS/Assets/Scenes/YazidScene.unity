@@ -2567,6 +2567,9 @@ MonoBehaviour:
   ressourcePool:
     serializedVersion: 2
     m_Bits: 256
+  fogOfWar:
+    serializedVersion: 2
+    m_Bits: 512
   groundMarker: {fileID: 431774524}
 --- !u!4 &1447060895
 Transform:
@@ -3888,7 +3891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5580272715633053077, guid: 6ec363bcb87205241be3bd04853f79fd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 43.286983
+      value: 41.9
       objectReference: {fileID: 0}
     - target: {fileID: 5580272715633053077, guid: 6ec363bcb87205241be3bd04853f79fd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4051,6 +4054,10 @@ PrefabInstance:
     - target: {fileID: 1347491133835818107, guid: 0be6b33172204604eb9b0c21f5de844c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995413045294656994, guid: 0be6b33172204604eb9b0c21f5de844c, type: 3}
+      propertyPath: WaitTimer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7038871529957374641, guid: 0be6b33172204604eb9b0c21f5de844c, type: 3}
       propertyPath: m_Name
