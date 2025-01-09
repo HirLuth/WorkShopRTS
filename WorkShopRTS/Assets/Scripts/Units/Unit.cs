@@ -57,6 +57,7 @@ public class Unit : MonoBehaviour
 
     public void AddHydratation(int hydratationToAdd)
     {
+        Debug.Log("AddHydratation");
        ChangeHydratation(Mathf.Clamp(currentHydratation + hydratationToAdd ,0,maxHydratation));
     }
 
@@ -70,8 +71,6 @@ public class Unit : MonoBehaviour
         }
     }
     
-    
-
     private void OnDestroy() 
     {
         UnitSelectionManager.Instance.allUnitsList.Remove(gameObject);
@@ -138,6 +137,14 @@ public class Unit : MonoBehaviour
     public void Death()
     {
         Destroy(gameObject);
+    }
+
+    public void Drink()
+    {
+        Debug.Log("Drink");
+        int amountToDrink = Mathf.Clamp(maxHydratation - currentHydratation, 0, inventory.ressources[0]);
+        AddHydratation(amountToDrink);
+        inventory.RemoveResources(RessourcesManager.Ressource.Water,amountToDrink);
     }
     
 }

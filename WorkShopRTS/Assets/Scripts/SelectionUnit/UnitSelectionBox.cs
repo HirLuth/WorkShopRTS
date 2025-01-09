@@ -102,7 +102,7 @@ public class UnitSelectionBox : MonoBehaviour
             selectionBox.yMax = Input.mousePosition.y;
         }
     }
- 
+    
     void SelectUnits()
     {
         foreach (var unit in UnitSelectionManager.Instance.allUnitsList)

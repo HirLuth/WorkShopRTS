@@ -34,7 +34,7 @@ public class UnitSelectionManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && !UIManager.instance.isInMenu)
         {
             RaycastHit hit;
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -57,6 +57,10 @@ public class UnitSelectionManager : MonoBehaviour
                 if(Input.GetKey(KeyCode.LeftShift) == false)
                 {
                     DeselectAll();
+                    if (UnitCanvas.UnitCanvasOpen != null)
+                    {
+                        UnitCanvas.UnitCanvasOpen.ShowOrder(false);
+                    }
                 }
             }
         }
@@ -131,17 +135,16 @@ public class UnitSelectionManager : MonoBehaviour
     {
         if (unitsSelected.Contains(unit))
         {
-
+            unit.GetComponent<Unit>().unitCanvas.ShowOrder(true);
         }
         else
         {
-            Debug.Log("ordre");
-        }
-        // Reset the selection and select the new element
-        DeselectAll();
-        unitsSelected.Add(unit);
+            // Reset the selection and select the new element
+            DeselectAll();
+            unitsSelected.Add(unit);
 
-        SelectUnit(unit, true);
+            SelectUnit(unit, true);
+        }
     }
 
     // Select Function 

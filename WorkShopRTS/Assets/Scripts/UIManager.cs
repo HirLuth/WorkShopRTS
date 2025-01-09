@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
     public List<TMP_Text> ressourcesTexts;
+    public bool isInMenu;
 
     private void Awake()
     {
