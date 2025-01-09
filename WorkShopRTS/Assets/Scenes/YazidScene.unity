@@ -254,6 +254,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrain: {fileID: 1776114321}
+  carPlayer: {fileID: 1372323377}
+  percentagePlayerTarget: 10
 --- !u!65 &78210378
 BoxCollider:
   m_ObjectHideFlags: 0
