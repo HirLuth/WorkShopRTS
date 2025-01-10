@@ -18,7 +18,8 @@ public class MonsterMove : MonoBehaviour
     private float percentagePlayerTarget = 0f;
     private float percentageRandomTarget = 100f;
 
-    private bool isChasing;
+    [HideInInspector]
+    public bool isChasing;
     private GameObject currentTarget;
 
     void Start()
@@ -48,6 +49,7 @@ public class MonsterMove : MonoBehaviour
             Vector3 goalPos = carPlayer.transform.position;
             agent.SetDestination(goalPos);
             currentGoal = goalPos;
+            percentagePlayerTarget = 0;
         }
         else
         {
