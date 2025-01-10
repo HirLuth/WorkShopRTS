@@ -218,7 +218,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!195 &78210376
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2433,7 +2433,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fogOfWarPlane: {fileID: 1778750513}
-  m_player: {fileID: 491807749}
+  playerList:
+  - {fileID: 491807749}
   m_fogLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -3587,7 +3588,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &1778750514
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4546,7 +4547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6836730796793461980, guid: 585d648518118c54ca311b8b213c0d75, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -566.03
+      value: -561.27
       objectReference: {fileID: 0}
     - target: {fileID: 6836730796793461980, guid: 585d648518118c54ca311b8b213c0d75, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4554,7 +4555,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6836730796793461980, guid: 585d648518118c54ca311b8b213c0d75, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -62.38
+      value: -61.38
       objectReference: {fileID: 0}
     - target: {fileID: 6836730796793461980, guid: 585d648518118c54ca311b8b213c0d75, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4723,6 +4724,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6963031325637604090, guid: 77632fb528053c046bb4f9195aa6f193, type: 3}
+      propertyPath: fogOfWarScript
+      value: 
+      objectReference: {fileID: 1134973222}
+    - target: {fileID: 6963031325637604090, guid: 77632fb528053c046bb4f9195aa6f193, type: 3}
       propertyPath: AddNewMemberClanPanel
       value: 
       objectReference: {fileID: 412850692}
@@ -4815,6 +4820,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Community
       objectReference: {fileID: 0}
+    - target: {fileID: 8465987005604072343, guid: 0be6b33172204604eb9b0c21f5de844c, type: 3}
+      propertyPath: lightingManager
+      value: 
+      objectReference: {fileID: 113964250}
+    - target: {fileID: 8688228351772954742, guid: 0be6b33172204604eb9b0c21f5de844c, type: 3}
+      propertyPath: lightingManager
+      value: 
+      objectReference: {fileID: 113964250}
+    - target: {fileID: 8842701912184524010, guid: 0be6b33172204604eb9b0c21f5de844c, type: 3}
+      propertyPath: lightingManager
+      value: 
+      objectReference: {fileID: 113964250}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

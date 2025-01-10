@@ -7,6 +7,8 @@ public class CommunityManager : MonoBehaviour
     [SerializeField]
     private Transform playerCommunity;
     public Material playerUnitMat;
+    [SerializeField]
+    private FogOfWarScript fogOfWarScript;
 
     public GameObject AddNewMemberClanPanel;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -43,6 +45,7 @@ public class CommunityManager : MonoBehaviour
 
       newMember.layer = 7;
       newMember.tag = "UnitPlayerClan";
+      fogOfWarScript.playerList.Add(newMember.transform);
    }
 }
 

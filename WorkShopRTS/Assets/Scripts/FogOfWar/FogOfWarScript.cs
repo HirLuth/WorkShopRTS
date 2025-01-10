@@ -6,7 +6,8 @@ using UnityEngine;
 public class FogOfWarScript : MonoBehaviour {
 	
 	public GameObject m_fogOfWarPlane;
-	public Transform m_player;
+	public List<Transform> playerList;
+	//public Transform m_player;
 	public LayerMask m_fogLayer;
 	public float m_radius = 5f;
 	private float m_radiusSqr { get { return m_radius*m_radius; }}
@@ -23,14 +24,16 @@ public class FogOfWarScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
-        // Raycasts
-		Ray rCenter = new Ray(m_player.position + new Vector3(0,10,0), new Vector3(0,-10,0));
-        Ray rRight = new Ray(m_player.position + new Vector3(0,10,0), new Vector3(-10,-10,0));
-        Ray rLeft = new Ray(m_player.position + new Vector3(0,10,0), new Vector3(10,-10,0));
-        Ray rUp = new Ray(m_player.position + new Vector3(0,10,0), new Vector3(0,-10,10));
-        Ray rDown = new Ray(m_player.position + new Vector3(0,10,0), new Vector3(0,-10,-10));
+		for(int x = 0; x < playerList.Count; x++)
+		{
+			// Raycasts
+		Ray rCenter = new Ray(playerList[x].position + new Vector3(0,10,0), new Vector3(0,-10,0));
+        Ray rRight = new Ray(playerList[x].position + new Vector3(0,10,0), new Vector3(-10,-10,0));
+        Ray rLeft = new Ray(playerList[x].position + new Vector3(0,10,0), new Vector3(10,-10,0));
+        Ray rUp = new Ray(playerList[x].position + new Vector3(0,10,0), new Vector3(0,-10,10));
+        Ray rDown = new Ray(playerList[x].position + new Vector3(0,10,0), new Vector3(0,-10,-10));
 		RaycastHit hit;
-        Debug.DrawRay(m_player.position + new Vector3(0,10,0), new Vector3(0,-10,10), Color.red);
+      //  Debug.DrawRay(m_player.position + new Vector3(0,10,0), new Vector3(0,-10,10), Color.red);
 		
         // Raycast centre
         if (Physics.Raycast(rCenter, out hit, 1000, m_fogLayer, QueryTriggerInteraction.Collide)) 
@@ -100,6 +103,7 @@ public class FogOfWarScript : MonoBehaviour {
 				}
 			}
 			UpdateColor();
+		}
 		}
 	}
 	
