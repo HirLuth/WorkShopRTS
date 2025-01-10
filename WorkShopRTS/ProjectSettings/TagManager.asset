@@ -6,6 +6,7 @@ TagManager:
   tags:
   - UnitPlayerClan
   - Item
+  - Car
   layers:
   - Default
   - TransparentFX
