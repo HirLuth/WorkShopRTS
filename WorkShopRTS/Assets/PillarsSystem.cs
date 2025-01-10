@@ -13,11 +13,12 @@ public class PillarsSystem : MonoBehaviour
     public GameObject Monster;
     public RessourcesManager.Ressource ressourceToRepair = RessourcesManager.Ressource.Iron;
     public int amountToRepair = 100;
+    public GameObject panelWin;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        panelWin.SetActive(false);
     }
 
     // Update is called once per frame
@@ -60,6 +61,7 @@ public class PillarsSystem : MonoBehaviour
             if(currentRepairedPillard == 3)
             {
                 Destroy(Monster);
+                panelWin.SetActive(true);
             }
         }
         Monster.transform.localScale -= new Vector3(2,0,2);
