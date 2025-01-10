@@ -257,6 +257,7 @@ MonoBehaviour:
   terrain: {fileID: 1776114321}
   carPlayer: {fileID: 0}
   percentagePlayerTarget: 0
+  isChasing: 0
 --- !u!65 &78210378
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1484,11 +1485,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 002c9c47bc777e540a977c7c7707a5fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
-  zoomSpeed: 0
-  minZoomDist: 0
-  maxZoomDist: 0
-  cam: {fileID: 0}
+  moveSpeed: 20
+  zoomSpeed: 20
+  minZoomDist: 20
+  maxZoomDist: 20
+  cam: {fileID: 1134973218}
 --- !u!4 &734179357
 Transform:
   m_ObjectHideFlags: 0

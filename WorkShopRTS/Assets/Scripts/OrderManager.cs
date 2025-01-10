@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class OrderManager : MonoBehaviour
@@ -19,6 +20,14 @@ public class OrderManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            GiveOrder(Orders.Drink);
         }
     }
 
