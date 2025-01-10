@@ -35,7 +35,9 @@ public class Unit : MonoBehaviour
     public int maxHydratation;
     public int currentHydratation;
     [Header("Heat Values")]
-    public int heatValue;
+    [SerializeField]
+    private LightingManager lightingManager;
+    public float heatValue;
     [Header("Gestion Values")]
     public UnitInventory inventory;
     public UnitMovement unitMovement;
@@ -54,6 +56,15 @@ public class Unit : MonoBehaviour
     
     private void Update()
     {
+        if(lightingManager.TimeOfDay > 6 && lightingManager.TimeOfDay < 18)
+        {
+            heatValue = 2;
+        }
+        if(lightingManager.TimeOfDay < 6 || lightingManager.TimeOfDay > 18)
+        {
+            heatValue = 1;
+        }
+
         if(isTakingDamage)
         {
             currentHealth -= sufferDamage * Time.deltaTime;

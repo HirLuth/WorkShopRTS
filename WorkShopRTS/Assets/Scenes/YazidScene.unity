@@ -4597,6 +4597,10 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7717156293651907979, guid: 585d648518118c54ca311b8b213c0d75, type: 3}
+      propertyPath: lightingManager
+      value: 
+      objectReference: {fileID: 113964250}
+    - target: {fileID: 7717156293651907979, guid: 585d648518118c54ca311b8b213c0d75, type: 3}
       propertyPath: currentHydratation
       value: 100
       objectReference: {fileID: 0}
