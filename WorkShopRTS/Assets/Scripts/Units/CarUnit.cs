@@ -10,6 +10,7 @@ public class CarUnit : Unit
             unitCanvas.UpdateLifeJauge(currentHealth, maxHealth);
         }
     }
+    
 
     public override void AddHydratation(int hydratationToAdd)
     {

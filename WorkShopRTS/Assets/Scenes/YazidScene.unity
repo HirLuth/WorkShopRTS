@@ -648,6 +648,7 @@ MonoBehaviour:
   terrain: {fileID: 1776114321}
   carPlayer: {fileID: 1372323377}
   percentagePlayerTarget: 0
+  isChasing: 0
 --- !u!65 &78210378
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -732,7 +733,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 32.82, y: 1, z: 152.18}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 238828775}
@@ -14115,6 +14116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ressources: 
+  fuelDrainRate: 0
   baseRessources: 
   unitObjSelfReference: {fileID: 1372323377}
   carInteractible: {fileID: 1372323378}
@@ -17683,7 +17685,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &1778750514
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -409,14 +409,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 628479539}
     m_Modifications:
-    - target: {fileID: 1419786252392267028, guid: cb3d7ba80fc950f409efebb78bf25b0d, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1419786252392267028, guid: cb3d7ba80fc950f409efebb78bf25b0d, type: 3}
-      propertyPath: ressourcePool.m_Bits
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1629709827987388016, guid: cb3d7ba80fc950f409efebb78bf25b0d, type: 3}
       propertyPath: m_Name
       value: Vehicles
