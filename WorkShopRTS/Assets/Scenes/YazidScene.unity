@@ -2386,7 +2386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d28f6c8a3c4e5ca4d8aeebb295ee0930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageInflict: 1
+  DamageInflict: 15
 --- !u!1 &242201071
 GameObject:
   m_ObjectHideFlags: 0
@@ -3829,7 +3829,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6457162845521303394, guid: e9112132fda175d4ba2e5a074a1f0df3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -23.09
+      value: -23.36
       objectReference: {fileID: 0}
     - target: {fileID: 6457162845521303394, guid: e9112132fda175d4ba2e5a074a1f0df3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -18137,7 +18137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1778750514
 MeshCollider:
   m_ObjectHideFlags: 0
