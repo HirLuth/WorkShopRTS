@@ -73,22 +73,21 @@ public class UnitSelectionManager : MonoBehaviour
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 
             // If we are hitting a clickable object
-            if(Physics.Raycast(ray, out hit, Mathf.Infinity))
+            if(Physics.Raycast(ray, out hit, Mathf.Infinity,ground))
             {
-                if(hit.transform.gameObject.layer == LayerMask.NameToLayer("Ground"))
-                {
+
                     GroundSelection(hit);
                     ClearRessourceList();
-                }
-                if(hit.transform.gameObject.layer == LayerMask.NameToLayer("RessourcePool") || hit.collider.gameObject.layer == LayerMask.NameToLayer("Car"))
-                {
-                    RessourcesSelection(hit);
-                }
             }
+            if(Physics.Raycast(ray, out hit, Mathf.Infinity, ressourcePool) || Physics.Raycast(ray, out hit, Mathf.Infinity, carLayer))
+            {
+                    RessourcesSelection(hit);
+            }
+            
         }
 
         // Fog Of war Clickable
-         if(Input.GetMouseButtonDown(1))
+ /*        if(Input.GetMouseButtonDown(1))
         {
             RaycastHit hit;
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -98,7 +97,7 @@ public class UnitSelectionManager : MonoBehaviour
             {
                 GroundSelection(hit);
             }
-        }
+        } */
     }
 
     // Selection Function for each layer
