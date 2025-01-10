@@ -241,6 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ressources: 
+  fuelDrainRate: 60
   baseRessources: 32000000320000003200000032000000
   unitObjSelfReference: {fileID: 1629709827987388016}
   carInteractible: {fileID: 9093861759211754232}
@@ -285,7 +286,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629709827987388016}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d6ba96c87773044ba5dbb69a843f765, type: 3}
   m_Name: 
@@ -295,7 +296,7 @@ MonoBehaviour:
     m_Bits: 64
   ressourcePool:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0
   isMovingAlone: 0
 --- !u!114 &9093861759211754232
 MonoBehaviour:

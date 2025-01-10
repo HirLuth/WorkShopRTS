@@ -5,6 +5,7 @@ namespace Inventories_and_Ressources
 {
     public class PlayerInventory : Inventory
     {
+        public float fuelDrainRate;
         public static PlayerInventory instance;
         public List<int> baseRessources;
         public GameObject unitObjSelfReference;
@@ -59,6 +60,11 @@ namespace Inventories_and_Ressources
             int amountToDrink = Mathf.Clamp(unitThatDrink.maxHydratation - unitThatDrink.currentHydratation, 0, ressources[0]);
             unitThatDrink.AddHydratation(amountToDrink);
             RemoveResources(RessourcesManager.Ressource.Water,amountToDrink);
+        }
+        
+        public void DrainFuel(float deltaTime)
+        {
+            RemoveResources(RessourcesManager.Ressource.Fuel, Mathf.RoundToInt(deltaTime*fuelDrainRate));
         }
     }
 }

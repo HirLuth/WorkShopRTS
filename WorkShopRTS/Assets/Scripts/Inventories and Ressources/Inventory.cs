@@ -24,5 +24,6 @@ public class Inventory : MonoBehaviour
     public virtual void RemoveResources(RessourcesManager.Ressource ressourceToRemove, int amountToRemove)
     {
         ressources[(int)ressourceToRemove] -= amountToRemove;
+        ressources[(int)ressourceToRemove] = Mathf.Clamp(ressources[(int)ressourceToRemove], 0, 100000);
     }
 }

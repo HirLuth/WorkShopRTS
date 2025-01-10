@@ -1,7 +1,10 @@
+using Inventories_and_Ressources;
 using UnityEngine;
 
 public class CarUnitMovement : UnitMovement
 {
+    private Vector3 destination;
+    
     protected override void Update()
     {
         if (!isMovingAlone)
@@ -16,7 +19,6 @@ public class CarUnitMovement : UnitMovement
                     if(hit.transform.gameObject.layer == LayerMask.NameToLayer("Ground"))
                     {
                         agent.SetDestination(hit.point);
-                        Debug.Log(gameObject.name);
                     }
                     if(hit.transform.gameObject.layer == LayerMask.NameToLayer("RessourcePool"))
                     {
@@ -29,6 +31,20 @@ public class CarUnitMovement : UnitMovement
                     Debug.Log("ground");
                     agent.SetDestination(hit.point);
                 }
+            }
+
+            if (agent.velocity.magnitude > 0.1f)
+            {
+                PlayerInventory.instance.DrainFuel(Time.deltaTime);
+            }
+
+            if (PlayerInventory.instance.ressources[1] == 0)
+            {
+                agent.speed = 0;
+            }
+            else
+            {
+                agent.speed = selfUnit.moveSpeed;
             }
         }
     }

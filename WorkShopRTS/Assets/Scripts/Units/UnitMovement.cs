@@ -9,11 +9,15 @@ public class UnitMovement : MonoBehaviour
     protected NavMeshAgent agent;
     public LayerMask ground, ressourcePool;
     public bool isMovingAlone;
+    protected Unit selfUnit;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         cam = Camera.main;
         agent = GetComponent<NavMeshAgent>();
+        selfUnit = GetComponent<Unit>();
+
+        agent.speed = selfUnit.moveSpeed;
     }
 
     // Update is called once per frame
