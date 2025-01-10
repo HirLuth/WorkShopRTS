@@ -1,23 +1,8 @@
-using Inventories_and_Ressources;
 using UnityEngine;
-using UnityEngine.AI;
 
-public class UnitMovement : MonoBehaviour
+public class CarUnitMovement : UnitMovement
 {
-
-    protected Camera cam;
-    protected NavMeshAgent agent;
-    public LayerMask ground, ressourcePool;
-    public bool isMovingAlone;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        cam = Camera.main;
-        agent = GetComponent<NavMeshAgent>();
-    }
-
-    // Update is called once per frame
-    protected virtual void Update()
+    protected override void Update()
     {
         if (!isMovingAlone)
         {
@@ -46,16 +31,5 @@ public class UnitMovement : MonoBehaviour
                 }
             }
         }
-        
-    }
-
-    public void GoBackToTheCar()
-    {
-        agent.destination = PlayerInventory.instance.unitObjSelfReference.transform.localPosition;
-    }
-
-    public void StopGoingToTheCar()
-    {
-        agent.destination = transform.position;
     }
 }

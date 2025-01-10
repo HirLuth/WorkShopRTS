@@ -39,7 +39,7 @@ public class Unit : MonoBehaviour
     private LightingManager lightingManager;
     public float heatValue;
     [Header("Gestion Values")]
-    public UnitInventory inventory;
+    public Inventory inventory;
     public UnitMovement unitMovement;
     public UnitCanvas unitCanvas;
     
@@ -52,9 +52,10 @@ public class Unit : MonoBehaviour
     {
         UnitSelectionManager.Instance.allUnitsList.Add(gameObject);
         currentHydratation = maxHydratation;
+        lightingManager = LightingManager.Instance;
     }
     
-    private void Update()
+    protected virtual void Update()
     {
         if(lightingManager.TimeOfDay > 6 && lightingManager.TimeOfDay < 18)
         {
@@ -78,7 +79,7 @@ public class Unit : MonoBehaviour
         }
     }
 
-    public void AddHydratation(int hydratationToAdd)
+    public virtual void AddHydratation(int hydratationToAdd)
     {
         Debug.Log("AddHydratation");
        ChangeHydratation(Mathf.Clamp(currentHydratation + hydratationToAdd ,0,maxHydratation));
@@ -99,7 +100,7 @@ public class Unit : MonoBehaviour
         UnitSelectionManager.Instance.allUnitsList.Remove(gameObject);
     }
 
-    public void SetInteraction(GameObject interactableObj, bool isGoingToTheCar = false)
+    public virtual void SetInteraction(GameObject interactableObj, bool isGoingToTheCar = false)
     {
         state = isGoingToTheCar ? State.MovingUnselected : State.MovingToInteract;
         currentInteractibleObj = interactableObj;

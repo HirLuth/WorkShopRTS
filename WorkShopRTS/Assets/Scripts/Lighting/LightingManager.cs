@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 [ExecuteAlways]
 public class LightingManager : MonoBehaviour
 {
+    public static LightingManager Instance;
     //Scene References
     [SerializeField] private Light DirectionalLight;
     [SerializeField] private LightingPreset Preset;
@@ -15,6 +17,17 @@ public class LightingManager : MonoBehaviour
     // List des ressources
     public List<GameObject> ressourcesList = new List<GameObject>();
 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Update()
     {

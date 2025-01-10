@@ -40,7 +40,8 @@ public class UnitSelectionManager : MonoBehaviour
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 
             // If we are hitting a clickable object
-            if(Physics.Raycast(ray, out hit, Mathf.Infinity, clickable))
+            Physics.Raycast(ray, out hit, Mathf.Infinity);
+            if( hit.collider.gameObject.layer == LayerMask.NameToLayer("Clickable") || hit.collider.gameObject.layer == LayerMask.NameToLayer("Car"))
             {
                 if(Input.GetKey(KeyCode.LeftShift))
                 {
@@ -79,7 +80,7 @@ public class UnitSelectionManager : MonoBehaviour
                     GroundSelection(hit);
                     ClearRessourceList();
                 }
-                if(hit.transform.gameObject.layer == LayerMask.NameToLayer("RessourcePool"))
+                if(hit.transform.gameObject.layer == LayerMask.NameToLayer("RessourcePool") || hit.collider.gameObject.layer == LayerMask.NameToLayer("Car"))
                 {
                     RessourcesSelection(hit);
                 }
@@ -133,18 +134,11 @@ public class UnitSelectionManager : MonoBehaviour
 
     private void SelectByClicking(GameObject unit)
     {
-        if (unitsSelected.Contains(unit))
-        {
-            unit.GetComponent<Unit>().unitCanvas.ShowOrder(true);
-        }
-        else
-        {
-            // Reset the selection and select the new element
-            DeselectAll();
-            unitsSelected.Add(unit);
+        // Reset the selection and select the new element
+        DeselectAll();
+        unitsSelected.Add(unit);
 
-            SelectUnit(unit, true);
-        }
+        SelectUnit(unit, true);
     }
 
     // Select Function 
