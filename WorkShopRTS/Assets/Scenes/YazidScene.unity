@@ -14899,6 +14899,9 @@ MonoBehaviour:
   fogOfWar:
     serializedVersion: 2
     m_Bits: 512
+  carLayer:
+    serializedVersion: 2
+    m_Bits: 1024
   groundMarker: {fileID: 431774524}
 --- !u!4 &1447060895
 Transform:
