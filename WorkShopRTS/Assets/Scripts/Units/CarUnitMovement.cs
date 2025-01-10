@@ -4,7 +4,7 @@ using UnityEngine;
 public class CarUnitMovement : UnitMovement
 {
     private Vector3 destination;
-    private float timerFuel;
+    public float timerFuel;
     public float tickFuel = 1;
     
     
@@ -35,26 +35,7 @@ public class CarUnitMovement : UnitMovement
                     agent.SetDestination(hit.point);
                 }
             }
-
-            if (agent.velocity.magnitude > 0.1f)
-            {
-                timerFuel += Time.deltaTime;
-                if (timerFuel >= tickFuel)
-                {
-                    timerFuel = 0;
-                    PlayerInventory.instance.DrainFuel();
-                }
-                
-            }
-
-            if (PlayerInventory.instance.ressources[1] == 0)
-            {
-                agent.speed = 0;
-            }
-            else
-            {
-                agent.speed = selfUnit.moveSpeed;
-            }
+            
         }
     }
 }

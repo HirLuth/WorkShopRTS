@@ -589,6 +589,11 @@ MonoBehaviour:
   maxPossessed: 100
   currentPossessed: 0
   harvestSpeed: 1
+--- !u!1 &64969773 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1629709827987388016, guid: cb3d7ba80fc950f409efebb78bf25b0d, type: 3}
+  m_PrefabInstance: {fileID: 2081042953}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &78210375
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,7 +651,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
   terrain: {fileID: 1776114321}
-  carPlayer: {fileID: 0}
+  carPlayer: {fileID: 64969773}
   percentagePlayerTarget: 0
   isChasing: 0
 --- !u!65 &78210378
@@ -18137,7 +18142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &1778750514
 MeshCollider:
   m_ObjectHideFlags: 0
