@@ -23,13 +23,20 @@ public class Unit : MonoBehaviour
     [Header("Units Values")]
     public string UnitName;
     public int level;
-    public int currentHealth;
-    public int maxHealth;
-    public int damage;
     public float moveSpeed;
+    public int inflictDamage;
+    [Header("Health Values")]
+    public float currentHealth;
+    public float maxHealth;
+    public bool isTakingDamage;
+    [HideInInspector]
+    public float sufferDamage;
+    [Header("Thirst Values")]
     public int maxHydratation;
     public int currentHydratation;
-    public float heatValue;
+    [Header("Heat Values")]
+    public int heatValue;
+    [Header("Gestion Values")]
     public UnitInventory inventory;
     public UnitMovement unitMovement;
     public UnitCanvas unitCanvas;
@@ -47,6 +54,10 @@ public class Unit : MonoBehaviour
     
     private void Update()
     {
+        if(isTakingDamage)
+        {
+            currentHealth -= sufferDamage * Time.deltaTime;
+        }
         _timerHydratation += Time.deltaTime;
         if (_timerHydratation >= tickDehydration)
         {
@@ -145,6 +156,20 @@ public class Unit : MonoBehaviour
         int amountToDrink = Mathf.Clamp(maxHydratation - currentHydratation, 0, inventory.ressources[0]);
         AddHydratation(amountToDrink);
         inventory.RemoveResources(RessourcesManager.Ressource.Water,amountToDrink);
+    }
+
+    public void ChangeHealth(float amount)
+    {
+        currentHealth += amount;
+
+        if(currentHealth <= 0)
+        {
+            Death();
+        }
+        if(currentHealth >= 100)
+        {
+            currentHealth = 100;
+        }
     }
     
 }

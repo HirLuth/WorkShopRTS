@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [ExecuteAlways]
@@ -7,13 +8,19 @@ public class LightingManager : MonoBehaviour
     [SerializeField] private Light DirectionalLight;
     [SerializeField] private LightingPreset Preset;
     //Variables
-    [SerializeField, Range(0, 24)] private float TimeOfDay;
+    [SerializeField, Range(0, 24)] public float TimeOfDay;
     public bool isNightShiftActive;
     public float MultiplierTimer;
+
+    // List des ressources
+    public List<GameObject> ressourcesList = new List<GameObject>();
 
 
     private void Update()
     {
+        CheckTimer();
+        
+        // Autre chose
         if(isNightShiftActive)
         {
             if (Preset == null)
@@ -72,6 +79,41 @@ public class LightingManager : MonoBehaviour
                     DirectionalLight = light;
                     return;
                 }
+            }
+        }
+    }
+
+    public void CheckTimer()
+    {
+        // Check l'horaire et change les ressources
+        if(TimeOfDay > 6 && TimeOfDay < 18)
+        {
+            for(int i = 0; i < ressourcesList.Count; i++)
+            {
+               if(ressourcesList[i].GetComponent<DayAndNightLogic>().isDayRessource)
+               {
+                  ressourcesList[i].SetActive(true);
+               }
+               else
+               {
+                ressourcesList[i].SetActive(false);
+               }
+                
+            }
+        }
+        if(TimeOfDay < 6  || TimeOfDay > 18)
+        {
+            for(int i = 0; i < ressourcesList.Count; i++)
+            {
+               if(ressourcesList[i].GetComponent<DayAndNightLogic>().isDayRessource)
+               {
+                  ressourcesList[i].SetActive(false);
+               }
+               else
+               {
+                ressourcesList[i].SetActive(true);
+               }
+                
             }
         }
     }
