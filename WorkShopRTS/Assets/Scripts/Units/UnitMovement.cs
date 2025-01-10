@@ -5,11 +5,11 @@ using UnityEngine.AI;
 public class UnitMovement : MonoBehaviour
 {
 
-    protected Camera cam;
-    protected NavMeshAgent agent;
+    public Camera cam;
+    public NavMeshAgent agent;
     public LayerMask ground, ressourcePool;
     public bool isMovingAlone;
-    protected Unit selfUnit;
+    public Unit selfUnit;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
