@@ -5,7 +5,7 @@ public class MainMenu : MonoBehaviour
 {
     public void Play()
     {
-        SceneManager.LoadScene("YazidScene");
+        SceneManager.LoadScene("TestMenuScene");
     }
 
     public void Quit()
