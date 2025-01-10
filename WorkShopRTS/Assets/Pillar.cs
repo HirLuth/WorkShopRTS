@@ -21,7 +21,7 @@ public class Pillar : MonoBehaviour
 
     private void OnTriggerEnter(Collider col) 
     {
-        if(col.CompareTag("UnitPlayerClan") && !isRepaired)
+        if(col.CompareTag("Car") && !isRepaired)
         {
             pillarsSystem.restorePillarsPanel.SetActive(true);
             pillarsSystem.currentPillar = transform.gameObject;
@@ -29,7 +29,7 @@ public class Pillar : MonoBehaviour
     }
     private void OnTriggerExit(Collider col) 
     {
-        if(col.CompareTag("UnitPlayerClan") && !isRepaired)
+        if(col.CompareTag("Car") && !isRepaired)
         {
             pillarsSystem.restorePillarsPanel.SetActive(false);
         }
