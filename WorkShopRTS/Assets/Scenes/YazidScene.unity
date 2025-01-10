@@ -15,12 +15,12 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
   m_Fog: 0
-  m_FogColor: {r: 0.000036656857, g: 0.588251, b: 0.99996185, a: 1}
+  m_FogColor: {r: 0.7872894, g: 0.8194236, b: 0, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.9999985, g: 1, b: 0.99996185, a: 1}
+  m_AmbientSkyColor: {r: 0.7872894, g: 0.925645, b: 0.18057638, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -1248,9 +1248,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DirectionalLight: {fileID: 1966220886}
   Preset: {fileID: 11400000, guid: dc26d985b9fced04b831e2f994f3ed1a, type: 2}
-  TimeOfDay: 12
+  TimeOfDay: 5.9
   isNightShiftActive: 1
-  MultiplierTimer: 0
+  MultiplierTimer: 1
   ressourcesList: []
 --- !u!4 &113964251
 Transform:
@@ -1927,9 +1927,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 518779671773971248, guid: 770128fa8648d454e83b18f3922b9389, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 518779671773971248, guid: 770128fa8648d454e83b18f3922b9389, type: 3}
+      propertyPath: isDayRessource
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1461038427090380128, guid: 770128fa8648d454e83b18f3922b9389, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 92.82408
+      value: 98.44
       objectReference: {fileID: 0}
     - target: {fileID: 1461038427090380128, guid: 770128fa8648d454e83b18f3922b9389, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1937,7 +1945,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1461038427090380128, guid: 770128fa8648d454e83b18f3922b9389, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 85.37839
+      value: 93.45
       objectReference: {fileID: 0}
     - target: {fileID: 1461038427090380128, guid: 770128fa8648d454e83b18f3922b9389, type: 3}
       propertyPath: m_LocalRotation.w
@@ -19691,7 +19699,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 1
-  m_Color: {r: 0.99998474, g: 0.99998474, b: 0.99998474, a: 1}
+  m_Color: {r: 0.49165916, g: 0.49165916, b: 0.49165916, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -19754,7 +19762,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1966220885}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.061628457, y: 0.70441604, z: -0.70441604, w: 0.061628457}
+  m_LocalRotation: {x: -0.0011408331, y: 0.99610937, z: 0.013039773, w: 0.08714834}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

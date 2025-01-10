@@ -28,6 +28,39 @@ public class LightingManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void Start()
+    {
+        if(TimeOfDay > 6 && TimeOfDay < 18)
+        {
+            for(int i = 0; i < ressourcesList.Count; i++)
+            {
+               if(ressourcesList[i].GetComponent<DayAndNightLogic>().isDayRessource)
+               {
+                  ressourcesList[i].SetActive(true);
+               }
+               else
+               {
+                ressourcesList[i].SetActive(false);
+               }
+                
+            }
+        }
+        if(TimeOfDay < 6  || TimeOfDay < 18)
+        {
+            for(int i = 0; i < ressourcesList.Count; i++)
+            {
+               if(ressourcesList[i].GetComponent<DayAndNightLogic>().isDayRessource)
+               {
+                  ressourcesList[i].SetActive(false);
+               }
+               else
+               {
+                ressourcesList[i].SetActive(true);
+               }
+                
+            }
+        }
+    }
 
     private void Update()
     {
@@ -99,7 +132,7 @@ public class LightingManager : MonoBehaviour
     public void CheckTimer()
     {
         // Check l'horaire et change les ressources
-        if(TimeOfDay > 6 && TimeOfDay < 18)
+        if(TimeOfDay > 6 && TimeOfDay < 6.1)
         {
             for(int i = 0; i < ressourcesList.Count; i++)
             {
@@ -114,7 +147,7 @@ public class LightingManager : MonoBehaviour
                 
             }
         }
-        if(TimeOfDay < 6  || TimeOfDay > 18)
+        if(TimeOfDay > 18  && TimeOfDay < 18.1)
         {
             for(int i = 0; i < ressourcesList.Count; i++)
             {
