@@ -1255,7 +1255,7 @@ MonoBehaviour:
   Preset: {fileID: 11400000, guid: dc26d985b9fced04b831e2f994f3ed1a, type: 2}
   TimeOfDay: 5.9
   isNightShiftActive: 1
-  MultiplierTimer: 1
+  MultiplierTimer: 0.1
   ressourcesList: []
 --- !u!4 &113964251
 Transform:
