@@ -62,9 +62,9 @@ namespace Inventories_and_Ressources
             RemoveResources(RessourcesManager.Ressource.Water,amountToDrink);
         }
         
-        public void DrainFuel(float deltaTime)
+        public void DrainFuel()
         {
-            RemoveResources(RessourcesManager.Ressource.Fuel, Mathf.RoundToInt(deltaTime*fuelDrainRate));
+            RemoveResources(RessourcesManager.Ressource.Fuel, Mathf.RoundToInt(fuelDrainRate));
         }
     }
 }

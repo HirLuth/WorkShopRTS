@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Inventories_and_Ressources;
 using NUnit.Framework.Constraints;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +11,8 @@ public class PillarsSystem : MonoBehaviour
     public Mesh repairedMesh;
     public GameObject restorePillarsPanel;
     public GameObject Monster;
+    public RessourcesManager.Ressource ressourceToRepair = RessourcesManager.Ressource.Iron;
+    public int amountToRepair = 100;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,11 +28,19 @@ public class PillarsSystem : MonoBehaviour
 
     public void RepairPillar()
     {
-        currentPillar.GetComponent<Pillar>().isRepaired = true;
-        currentPillar.GetComponent<MeshFilter>().sharedMesh = repairedMesh;
-        restorePillarsPanel.SetActive(false);
-        Monster.GetComponent<MonsterMove>().agent.SetDestination(currentPillar.transform.position);
-        AffectMonster();
+        if (PlayerInventory.instance.ressources[(int)ressourceToRepair] >= amountToRepair)
+        {
+            PlayerInventory.instance.RemoveResources(ressourceToRepair, amountToRepair);
+            currentPillar.GetComponent<Pillar>().isRepaired = true;
+            currentPillar.GetComponent<MeshFilter>().sharedMesh = repairedMesh;
+            restorePillarsPanel.SetActive(false);
+            Monster.GetComponent<MonsterMove>().agent.SetDestination(currentPillar.transform.position);
+            AffectMonster();
+        }
+        else
+        {
+            Debug.Log("Pas assez de fer");
+        }
     }
 
     public void ClosePanel()
