@@ -128,7 +128,7 @@ MonoBehaviour:
   unitsInteracting: []
   isInteractedWith: 0
   ressourceToGive: 0
-  numberOfRessourcesToGive: 5
+  numberOfRessourcesToGive: 20
   maxPossessed: 100
   currentPossessed: 0
   harvestSpeed: 1
