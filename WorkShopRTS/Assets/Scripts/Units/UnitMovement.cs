@@ -35,7 +35,6 @@ public class UnitMovement : MonoBehaviour
                     if(hit.transform.gameObject.layer == LayerMask.NameToLayer("Ground"))
                     {
                         agent.SetDestination(hit.point);
-                        Debug.Log(gameObject.name);
                     }
                     if(hit.transform.gameObject.layer == LayerMask.NameToLayer("RessourcePool"))
                     {
@@ -45,7 +44,6 @@ public class UnitMovement : MonoBehaviour
 
                 if(Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
                 {
-                    Debug.Log("ground");
                     agent.SetDestination(hit.point);
                 }
             }

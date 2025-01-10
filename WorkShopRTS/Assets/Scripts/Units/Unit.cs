@@ -91,7 +91,6 @@ public class Unit : MonoBehaviour
 
     public virtual void AddHydratation(int hydratationToAdd)
     {
-        Debug.Log("AddHydratation");
        ChangeHydratation(Mathf.Clamp(currentHydratation + hydratationToAdd ,0,maxHydratation));
     }
 
