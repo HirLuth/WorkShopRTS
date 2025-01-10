@@ -68,6 +68,7 @@ public class Unit : MonoBehaviour
         if(isTakingDamage)
         {
             currentHealth -= sufferDamage * Time.deltaTime;
+            unitCanvas.UpdateLifeJauge(currentHealth, maxHealth);
         }
         _timerHydratation += Time.deltaTime;
         if (_timerHydratation >= tickDehydration)

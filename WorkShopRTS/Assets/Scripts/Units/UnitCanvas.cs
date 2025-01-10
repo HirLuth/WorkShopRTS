@@ -21,7 +21,7 @@ public class UnitCanvas : MonoBehaviour
         transform.rotation = _baseRotation;
     }
 
-    public void UpdateLifeJauge(int life, int maxLife)
+    public void UpdateLifeJauge(float life, float maxLife)
     {
         lifeJauge.fillAmount = (float)life/(float)maxLife;
     }
