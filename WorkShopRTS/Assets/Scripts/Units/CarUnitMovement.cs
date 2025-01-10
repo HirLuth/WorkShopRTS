@@ -4,6 +4,9 @@ using UnityEngine;
 public class CarUnitMovement : UnitMovement
 {
     private Vector3 destination;
+    private float timerFuel;
+    public float tickFuel = 1;
+    
     
     protected override void Update()
     {
@@ -35,7 +38,13 @@ public class CarUnitMovement : UnitMovement
 
             if (agent.velocity.magnitude > 0.1f)
             {
-                PlayerInventory.instance.DrainFuel(Time.deltaTime);
+                timerFuel += Time.deltaTime;
+                if (timerFuel >= tickFuel)
+                {
+                    timerFuel = 0;
+                    PlayerInventory.instance.DrainFuel();
+                }
+                
             }
 
             if (PlayerInventory.instance.ressources[1] == 0)
