@@ -14,7 +14,7 @@ public class UnitSelectionManager : MonoBehaviour
     public List<GameObject> RessourcesList = new List<GameObject>();
 
     [Header("Click Variable")]
-    public LayerMask clickable, ground, ressourcePool, fogOfWar;
+    public LayerMask clickable, ground, ressourcePool, fogOfWar, carLayer;
     public GameObject groundMarker;
 
     private Camera cam;
@@ -41,7 +41,7 @@ public class UnitSelectionManager : MonoBehaviour
 
             // If we are hitting a clickable object
             Physics.Raycast(ray, out hit, Mathf.Infinity);
-            if( hit.collider.gameObject.layer == LayerMask.NameToLayer("Clickable") || hit.collider.gameObject.layer == LayerMask.NameToLayer("Car"))
+            if(Physics.Raycast(ray, out hit, Mathf.Infinity, clickable) || Physics.Raycast(ray, out hit, Mathf.Infinity, carLayer))
             {
                 if(Input.GetKey(KeyCode.LeftShift))
                 {
