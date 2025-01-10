@@ -9,8 +9,8 @@ public class MonsterMove : MonoBehaviour
     [HideInInspector]
     public NavMeshAgent agent;
     public Transform terrain;
-    private float terrainWidth = 100;
-    private float terrainHeight = 100;
+    private float terrainWidth = 200;
+    private float terrainHeight = 200;
     private Vector3 currentGoal;
     [SerializeField]
     private GameObject carPlayer; 
@@ -30,7 +30,7 @@ public class MonsterMove : MonoBehaviour
     void Update()
     {
        float distance = Vector3.Distance(currentGoal,transform.position);
-       if(distance <= 1 )
+       if(distance <= 7 )
        {
          GoToPosition();
        }
