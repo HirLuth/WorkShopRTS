@@ -42,6 +42,8 @@ public class Unit : MonoBehaviour
     public Inventory inventory;
     public UnitMovement unitMovement;
     public UnitCanvas unitCanvas;
+    [Header("References Values")]
+    private GameObject monster;
     
     private float _timerHydratation;
     public float tickDehydration;
@@ -50,6 +52,7 @@ public class Unit : MonoBehaviour
     
     void Start()
     {
+        monster = GameObject.Find("Monster");
         UnitSelectionManager.Instance.allUnitsList.Add(gameObject);
         currentHydratation = maxHydratation;
         lightingManager = LightingManager.Instance;
@@ -70,6 +73,13 @@ public class Unit : MonoBehaviour
         {
             currentHealth -= sufferDamage * Time.deltaTime;
             unitCanvas.UpdateLifeJauge(currentHealth, maxHealth);
+
+            if(currentHealth <= 0)
+            {
+                Death();
+                monster.GetComponent<MonsterMove>().isChasing = false;
+                monster.GetComponent<MonsterMove>().GoToPosition();
+            }
         }
         _timerHydratation += Time.deltaTime;
         if (_timerHydratation >= tickDehydration)
