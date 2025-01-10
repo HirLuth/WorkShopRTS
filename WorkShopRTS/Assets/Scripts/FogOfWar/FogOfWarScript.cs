@@ -33,7 +33,11 @@ public class FogOfWarScript : MonoBehaviour {
         Ray rUp = new Ray(playerList[x].position + new Vector3(0,10,0), new Vector3(0,-10,10));
         Ray rDown = new Ray(playerList[x].position + new Vector3(0,10,0), new Vector3(0,-10,-10));
 		RaycastHit hit;
-      //  Debug.DrawRay(m_player.position + new Vector3(0,10,0), new Vector3(0,-10,10), Color.red);
+        Debug.DrawRay(playerList[x].position + new Vector3(0,10,0), new Vector3(0,-10,0), Color.red);
+		Debug.DrawRay(playerList[x].position + new Vector3(0,10,0), new Vector3(-10,-10,0), Color.red);
+		Debug.DrawRay(playerList[x].position + new Vector3(0,10,0), new Vector3(10,-10,0), Color.red);
+		Debug.DrawRay(playerList[x].position + new Vector3(0,10,0), new Vector3(0,-10,10), Color.red);
+		Debug.DrawRay(playerList[x].position + new Vector3(0,10,0), new Vector3(0,-10,-10), Color.red);
 		
         // Raycast centre
         if (Physics.Raycast(rCenter, out hit, 1000, m_fogLayer, QueryTriggerInteraction.Collide)) 
