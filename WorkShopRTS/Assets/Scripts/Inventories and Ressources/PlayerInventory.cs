@@ -47,6 +47,7 @@ namespace Inventories_and_Ressources
         public void Unload(Unit unitThatUnload)
         {
             Inventory inventoryUnit = unitThatUnload.inventory;
+            unitThatUnload.ChangeHealth(100);
             for (int i = 0; i < RessourcesManager.instance.numberOfRessources; i++)
             {
                 AddResources((RessourcesManager.Ressource)i,inventoryUnit.ressources[i]);
